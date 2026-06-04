@@ -1,0 +1,376 @@
+/* TechnicienApprovisionnements.css */
+.ta-admin-users-page {
+    min-height: 100vh;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .ta-page-header {
+    background-color: white;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  
+  .ta-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: #f1f5f9;
+    border: none;
+    border-radius: 8px;
+    color: #475569;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 16px;
+  }
+  
+  .ta-back-btn:hover {
+    background-color: #e2e8f0;
+    transform: translateY(-1px);
+  }
+  
+  .ta-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .ta-header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .ta-page-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+  }
+  
+  .ta-page-header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  
+  .ta-page-header p {
+    margin: 4px 0 0;
+    color: #64748b;
+    font-size: 14px;
+  }
+  
+  .ta-header-actions {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .ta-export-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+  }
+  
+  .ta-export-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
+  }
+  
+  /* Stats Cards */
+  .ta-stats-grid {
+    display: grid;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .ta-stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+  }
+  
+  .ta-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  .ta-stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .ta-stat-content {
+    flex: 1;
+  }
+  
+  .ta-stat-label {
+    margin: 0;
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 500;
+  }
+  
+  .ta-stat-value {
+    margin: 4px 0 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  
+  /* Filters Bar */
+  .ta-filters-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    background: white;
+    padding: 16px 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .ta-search-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    background: #f8fafc;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .ta-search-box input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    color: #0f172a;
+    outline: none;
+  }
+  
+  .ta-search-box input::placeholder {
+    color: #94a3b8;
+  }
+  
+  .ta-filter-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    min-width: 180px;
+  }
+  
+  .ta-filter-group select {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    color: #0f172a;
+    font-weight: 500;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  /* Loading State */
+  .ta-loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    background: white;
+    border-radius: 12px;
+  }
+  
+  .ta-loader {
+    width: 48px;
+    height: 48px;
+    border: 3px solid #f1f5f9;
+    border-top: 3px solid #3b82f6;
+    border-radius: 50%;
+    animation: ta-spin 1s linear infinite;
+  }
+  
+  @keyframes ta-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Table Container */
+  .ta-users-table-container {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  
+  .ta-users-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .ta-users-table thead {
+    background-color: #f8fafc;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  
+  .ta-users-table th {
+    padding: 16px 20px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .ta-users-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 14px;
+    color: #334155;
+  }
+  
+  .ta-users-table tbody tr {
+    transition: background-color 0.2s ease;
+  }
+  
+  .ta-users-table tbody tr:hover {
+    background-color: #f8fafc;
+  }
+  
+  /* Quantity Badge */
+  .ta-quantity-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: #d1fae5;
+    border-radius: 20px;
+    color: #059669;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  
+  /* Empty State */
+  .ta-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .ta-empty-state h3 {
+    margin: 16px 0 8px;
+    color: #0f172a;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .ta-empty-state p {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .ta-filters-bar {
+      flex-wrap: wrap;
+    }
+    
+    .ta-filter-group {
+      min-width: 150px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .ta-filters-bar {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .ta-stats-grid {
+      grid-template-columns: repeat(1, 1fr) !important;
+    }
+    
+    .ta-users-table {
+      display: block;
+      overflow-x: auto;
+    }
+    
+    .ta-modal-content {
+      width: 95%;
+      margin: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .ta-page-header {
+      padding: 16px;
+    }
+    
+    .ta-header-content {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    
+    .ta-header-left {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    
+    .ta-page-icon {
+      width: 48px;
+      height: 48px;
+    }
+    
+    .ta-page-header h1 {
+      font-size: 24px;
+    }
+    
+    .ta-header-actions {
+      width: 100%;
+    }
+    
+    .ta-export-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }

@@ -1,0 +1,1656 @@
+/* ===== VARIABLES CLIENT DASHBOARD ===== */
+.dash-client-page {
+  --dash-client-primary: #E31837;
+  --dash-client-primary-light: #FF1A3D;
+  --dash-client-primary-dark: #C8102E;
+  --dash-client-secondary: #2563EB;
+  --dash-client-secondary-light: #3B82F6;
+  --dash-client-accent: #10B981;
+  --dash-client-danger: #EF4444;
+  --dash-client-warning: #F59E0B;
+  --dash-client-info: #0EA5E9;
+  --dash-client-success: #10B981;
+  --dash-client-dark: #111827;
+  --dash-client-dark-light: #1F2937;
+  --dash-client-light: #F9FAFB;
+  --dash-client-white: #FFFFFF;
+  --dash-client-border: #E5E7EB;
+  --dash-client-border-light: #F3F4F6;
+  --dash-client-surface: #FFFFFF;
+  --dash-client-surface-dark: #F9FAFB;
+  --dash-client-text: #111827;
+  --dash-client-text-secondary: #6B7280;
+  --dash-client-text-tertiary: #9CA3AF;
+  --dash-client-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --dash-client-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --dash-client-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --dash-client-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== RESET & BASE ===== */
+.dash-client-page * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.dash-client-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+  color: var(--dash-client-text);
+  position: relative;
+  overflow-x: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Loading State */
+.dash-client-page.dash-client-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dash-client-white);
+}
+
+.dash-client-loader-container {
+  text-align: center;
+  padding: 60px 40px;
+  background: var(--dash-client-white);
+  border-radius: 16px;
+  border: 1px solid var(--dash-client-border);
+  box-shadow: var(--dash-client-shadow-xl);
+}
+
+.dash-client-loader-icon {
+  margin-bottom: 24px;
+}
+
+.dash-client-loader-container p {
+  color: var(--dash-client-text-secondary);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* ===== HEADER ===== */
+.dash-client-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: var(--dash-client-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  z-index: 1000;
+  box-shadow: var(--dash-client-shadow-sm);
+  border-bottom: 1px solid var(--dash-client-border);
+}
+
+.dash-client-header-left,
+.dash-client-header-center,
+.dash-client-header-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Menu Toggle */
+.dash-client-menu-toggle {
+  width: 40px;
+  height: 40px;
+  background: var(--dash-client-white);
+  border: 1px solid var(--dash-client-border);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dash-client-text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dash-client-menu-toggle:hover {
+  background: var(--dash-client-primary);
+  border-color: var(--dash-client-primary);
+  color: var(--dash-client-white);
+}
+
+/* Brand */
+.dash-client-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dash-client-brand-icon {
+  color: var(--dash-client-primary);
+}
+
+.dash-client-brand-text h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--dash-client-text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dash-client-brand-accent {
+  color: var(--dash-client-primary);
+}
+
+.dash-client-client-tag {
+  font-size: 11px;
+  background: var(--dash-client-primary);
+  color: var(--dash-client-white);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+  line-height: 1;
+  margin-left: 8px;
+}
+
+.dash-client-brand-subtitle {
+  font-size: 11px;
+  color: var(--dash-client-text-secondary);
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+/* Search */
+.dash-client-search-wrapper {
+  position: relative;
+  width: 400px;
+}
+
+.dash-client-search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--dash-client-text-tertiary);
+  pointer-events: none;
+}
+
+.dash-client-search-input {
+  width: 100%;
+  padding: 12px 20px 12px 44px;
+  background: var(--dash-client-light);
+  border: 1px solid var(--dash-client-border);
+  border-radius: 12px;
+  color: var(--dash-client-text);
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.dash-client-search-input:focus {
+  border-color: var(--dash-client-primary);
+  box-shadow: 0 0 0 3px rgba(227, 24, 55, 0.1);
+  background: var(--dash-client-white);
+}
+
+.dash-client-search-input::placeholder {
+  color: var(--dash-client-text-tertiary);
+}
+
+/* Header Actions */
+.dash-client-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.dash-client-icon-btn {
+  width: 40px;
+  height: 40px;
+  background: var(--dash-client-light);
+  border: 1px solid var(--dash-client-border);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dash-client-text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.dash-client-icon-btn:hover {
+  background: var(--dash-client-surface-dark);
+  border-color: var(--dash-client-primary);
+  color: var(--dash-client-primary);
+}
+
+.dash-client-notification-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: var(--dash-client-primary);
+  color: var(--dash-client-white);
+  font-size: 10px;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+/* User Dropdown */
+.dash-client-user-dropdown {
+  position: relative;
+}
+
+.dash-client-user-trigger {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.dash-client-user-trigger:hover {
+  background: var(--dash-client-light);
+  border-color: var(--dash-client-border);
+}
+
+.dash-client-user-avatar {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--dash-client-primary), var(--dash-client-secondary));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--dash-client-white);
+  flex-shrink: 0;
+}
+
+.dash-client-user-info-mini {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dash-client-user-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dash-client-text);
+}
+
+.dash-client-dropdown-arrow {
+  color: var(--dash-client-text-secondary);
+  transition: transform 0.3s ease;
+}
+
+.dash-client-dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu */
+.dash-client-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 320px;
+  background: var(--dash-client-white);
+  border: 1px solid var(--dash-client-border);
+  border-radius: 16px;
+  box-shadow: var(--dash-client-shadow-xl);
+  z-index: 1001;
+  overflow: hidden;
+}
+
+.dash-client-dropdown-header {
+  padding: 24px;
+  background: linear-gradient(135deg, var(--dash-client-primary), var(--dash-client-secondary));
+  color: var(--dash-client-white);
+}
+
+.dash-client-user-info-full {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.dash-client-user-avatar-large {
+  width: 60px;
+  height: 60px;
+  background: var(--dash-client-white);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--dash-client-primary);
+  flex-shrink: 0;
+}
+
+.dash-client-user-info-full h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--dash-client-white);
+  margin-bottom: 4px;
+}
+
+.dash-client-user-email {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 8px;
+}
+
+.dash-client-user-points-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--dash-client-white);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.dash-client-dropdown-items {
+  padding: 8px 0;
+}
+
+.dash-client-dropdown-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  color: var(--dash-client-text);
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dash-client-dropdown-item:hover {
+  background: var(--dash-client-light);
+  color: var(--dash-client-primary);
+  padding-left: 28px;
+}
+
+.dash-client-dropdown-item svg {
+  color: var(--dash-client-text-secondary);
+}
+
+.dash-client-dropdown-item:hover svg {
+  color: var(--dash-client-primary);
+}
+
+.dash-client-dropdown-divider {
+  height: 1px;
+  background: var(--dash-client-border);
+  margin: 8px 0;
+}
+
+.dash-client-logout-item {
+  color: var(--dash-client-danger);
+}
+
+.dash-client-logout-item:hover {
+  color: var(--dash-client-danger);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* ===== DASHBOARD LAYOUT ===== */
+.dash-client-container {
+  display: flex;
+  min-height: calc(100vh - 70px);
+  margin-top: 70px;
+}
+
+/* Sidebar */
+.dash-client-sidebar {
+  width: 280px;
+  background: var(--dash-client-white);
+  border-right: 1px solid var(--dash-client-border);
+  position: fixed;
+  top: 70px;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  overflow-y: auto;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--dash-client-shadow-md);
+}
+
+.dash-client-sidebar.closed {
+  transform: translateX(-100%);
+}
+
+.dash-client-sidebar.open {
+  transform: translateX(0);
+}
+
+.dash-client-sidebar-content {
+  padding: 24px 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navigation */
+.dash-client-sidebar-nav {
+  flex: 1;
+  padding: 0 16px;
+}
+
+.dash-client-nav-section {
+  margin-bottom: 32px;
+}
+
+.dash-client-section-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--dash-client-text-secondary);
+  margin-bottom: 16px;
+  padding: 0 16px;
+}
+
+.dash-client-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  margin-bottom: 4px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--dash-client-text);
+  text-decoration: none;
+  position: relative;
+}
+
+.dash-client-nav-item:hover {
+  background: var(--dash-client-light);
+  color: var(--dash-client-primary);
+  transform: translateX(4px);
+}
+
+.dash-client-nav-item.active {
+  background: var(--dash-client-primary);
+  color: var(--dash-client-white);
+  font-weight: 500;
+}
+
+/* Retirer le tiret vertical sur la navigation active */
+.dash-client-nav-item.active::before {
+  content: none;
+}
+
+.dash-client-nav-arrow {
+  margin-left: auto;
+  color: var(--dash-client-text-tertiary);
+  transition: transform 0.3s ease;
+}
+
+.dash-client-nav-item:hover .dash-client-nav-arrow {
+  transform: translateX(2px);
+  color: var(--dash-client-primary);
+}
+
+.dash-client-nav-item.active .dash-client-nav-arrow {
+  color: var(--dash-client-white);
+}
+
+/* Quick Actions */
+.dash-client-quick-action-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--dash-client-light);
+  border: 1px solid var(--dash-client-border);
+  border-radius: 10px;
+  color: var(--dash-client-text);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 8px;
+  position: relative;
+  text-align: left;
+}
+
+.dash-client-quick-action-btn:hover {
+  background: rgba(227, 24, 55, 0.1);
+  border-color: var(--dash-client-primary);
+  color: var(--dash-client-primary);
+  transform: translateX(4px);
+}
+
+/* Style spécifique pour "Acheter Maintenant" */
+.dash-client-quick-action-btn.dash-client-accent-btn {
+  background: var(--dash-client-primary);
+  border-color: var(--dash-client-primary);
+  color: var(--dash-client-white);
+  font-weight: 600;
+  border: 2px solid var(--dash-client-primary);
+  box-shadow: 0 2px 10px rgba(227, 24, 55, 0.2);
+}
+
+.dash-client-quick-action-btn.dash-client-accent-btn:hover {
+  background: var(--dash-client-primary-dark);
+  border-color: var(--dash-client-primary-dark);
+  box-shadow: 0 4px 15px rgba(227, 24, 55, 0.3);
+}
+
+.dash-client-action-badge {
+  position: absolute;
+  right: 12px;
+  background: var(--dash-client-primary);
+  color: var(--dash-client-white);
+  font-size: 10px;
+  font-weight: 700;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+/* Sidebar Footer */
+.dash-client-sidebar-footer {
+  padding: 20px 16px 0;
+  border-top: 1px solid var(--dash-client-border);
+}
+
+.dash-client-system-status {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dash-client-status-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+}
+
+.dash-client-status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dash-client-status-indicator.dash-client-active {
+  background: var(--dash-client-success);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+}
+
+.dash-client-status-indicator.dash-client-secure {
+  background: var(--dash-client-primary);
+  box-shadow: 0 0 8px rgba(227, 24, 55, 0.5);
+}
+
+.dash-client-status-info {
+  flex: 1;
+}
+
+.dash-client-status-label {
+  display: block;
+  font-size: 12px;
+  color: var(--dash-client-text-secondary);
+  margin-bottom: 2px;
+}
+
+.dash-client-status-value {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dash-client-text);
+}
+
+/* ===== MAIN CONTENT ===== */
+.dash-client-content {
+  flex: 1;
+  padding: 32px;
+  margin-left: 280px;
+  max-width: calc(100vw - 280px);
+  overflow-x: hidden;
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dash-client-sidebar.closed ~ .dash-client-content {
+  margin-left: 0;
+  max-width: 100vw;
+}
+
+/* Dashboard Header */
+.dash-client-content-header {
+  background: var(--dash-client-white);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 30px;
+  border: 1px solid var(--dash-client-border);
+  box-shadow: var(--dash-client-shadow-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dash-client-header-content h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--dash-client-text);
+}
+
+.dash-client-welcome-name {
+  color: var(--dash-client-primary);
+}
+
+.dash-client-header-content p {
+  color: var(--dash-client-text-secondary);
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.dash-client-notification-alert {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(227, 24, 55, 0.1);
+  color: var(--dash-client-primary);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.dash-client-header-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dash-client-refresh-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: var(--dash-client-primary);
+  color: var(--dash-client-white);
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dash-client-refresh-btn:hover {
+  background: var(--dash-client-primary-dark);
+  box-shadow: 0 6px 20px rgba(227, 24, 55, 0.3);
+  transform: translateY(-1px);
+}
+
+.dash-client-date-range {
+  display: flex;
+  gap: 8px;
+  background: var(--dash-client-light);
+  padding: 4px;
+  border-radius: 10px;
+}
+
+.dash-client-date-btn {
+  padding: 8px 16px;
+  background: none;
+  border: none;
+  color: var(--dash-client-text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.dash-client-date-btn:hover {
+  background: var(--dash-client-border);
+  color: var(--dash-client-text);
+}
+
+.dash-client-date-btn.dash-client-active {
+  background: var(--dash-client-primary);
+  color: var(--dash-client-white);
+}
+
+/* Quick Overview */
+.dash-client-quick-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.dash-client-overview-card {
+  background: var(--dash-client-white);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid var(--dash-client-border);
+  transition: all 0.3s ease;
+  box-shadow: var(--dash-client-shadow-sm);
+}
+
+.dash-client-overview-card:hover {
+  box-shadow: var(--dash-client-shadow-lg);
+}
+
+.dash-client-overview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.dash-client-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid;
+}
+
+.dash-client-trend-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.dash-client-overview-content h3 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.dash-client-card-title {
+  font-size: 15px;
+  color: var(--dash-client-text);
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.dash-client-card-subtitle {
+  font-size: 13px;
+  color: var(--dash-client-text-secondary);
+}
+
+/* Content Sections */
+.dash-client-content-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 1400px) {
+  .dash-client-content-sections {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Analytics Section */
+.dash-client-analytics-section {
+  background: var(--dash-client-white);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid var(--dash-client-border);
+  box-shadow: var(--dash-client-shadow-md);
+}
+
+.dash-client-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--dash-client-border);
+}
+
+.dash-client-section-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--dash-client-text);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dash-client-section-action {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: var(--dash-client-primary);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.dash-client-section-action:hover {
+  background: rgba(227, 24, 55, 0.1);
+}
+
+.dash-client-analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.dash-client-analytics-card {
+  padding: 20px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.dash-client-analytics-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--dash-client-shadow-sm);
+}
+
+.dash-client-metric-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.dash-client-metric-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dash-client-metric-info {
+  flex: 1;
+}
+
+.dash-client-metric-label {
+  display: block;
+  font-size: 13px;
+  color: var(--dash-client-text-secondary);
+  margin-bottom: 4px;
+}
+
+.dash-client-metric-trend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--dash-client-success);
+}
+
+.dash-client-metric-content h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.dash-client-metric-subtitle {
+  font-size: 12px;
+  color: var(--dash-client-text-tertiary);
+}
+
+/* Recent Activities */
+.dash-client-recent-activities {
+  margin-top: 24px;
+}
+
+.dash-client-activities-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--dash-client-text);
+  margin: 0 0 16px;
+}
+
+.dash-client-favorites-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dash-client-favorite-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
+  border-radius: 12px;
+  border: 1px solid #FFCDD2;
+}
+
+.dash-client-favorite-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--dash-client-white);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dash-client-favorite-content h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dash-client-text);
+  margin-bottom: 4px;
+}
+
+.dash-client-favorite-boisson {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dash-client-text);
+  margin-bottom: 8px;
+}
+
+.dash-client-favorite-tag {
+  display: inline-block;
+  background: rgba(227, 24, 55, 0.2);
+  color: var(--dash-client-primary);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.dash-client-empty-favorites {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--dash-client-text-secondary);
+}
+
+.dash-client-goal-progress {
+  background: var(--dash-client-white);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid var(--dash-client-border);
+}
+
+.dash-client-goal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.dash-client-goal-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dash-client-text);
+}
+
+.dash-client-goal-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dash-client-primary);
+}
+
+.dash-client-progress-bar {
+  height: 8px;
+  background: var(--dash-client-border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.dash-client-progress-fill {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.dash-client-goal-percentage {
+  text-align: right;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--dash-client-text-secondary);
+}
+
+/* Activity Section */
+.dash-client-activity-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dash-client-alerts-container,
+.dash-client-transactions-container {
+  background: var(--dash-client-white);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid var(--dash-client-border);
+  box-shadow: var(--dash-client-shadow-md);
+}
+
+.dash-client-alert-count {
+  background: var(--dash-client-primary);
+  color: var(--dash-client-white);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+.dash-client-alerts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dash-client-alert-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dash-client-alert-item:hover {
+  transform: translateX(4px);
+  box-shadow: var(--dash-client-shadow-sm);
+}
+
+.dash-client-alert-details h4 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--dash-client-text);
+}
+
+.dash-client-alert-details p {
+  font-size: 13px;
+  color: var(--dash-client-text-secondary);
+}
+
+.dash-client-alert-item svg:last-child {
+  margin-left: auto;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.dash-client-alert-item:hover svg:last-child {
+  opacity: 1;
+}
+
+/* Transactions Table */
+.dash-client-transactions-table {
+  background: var(--dash-client-white);
+  border-radius: 12px;
+  border: 1px solid var(--dash-client-border);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.dash-client-table-wrapper {
+  overflow-x: auto;
+}
+
+.dash-client-transactions-table table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.dash-client-transactions-table thead {
+  background: var(--dash-client-light);
+}
+
+.dash-client-transactions-table th {
+  padding: 16px 20px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--dash-client-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--dash-client-border);
+}
+
+.dash-client-transactions-table td {
+  padding: 16px 20px;
+  font-size: 14px;
+  color: var(--dash-client-text);
+  border-bottom: 1px solid var(--dash-client-border);
+}
+
+.dash-client-transactions-table tr:last-child td {
+  border-bottom: none;
+}
+
+.dash-client-transactions-table tr:hover td {
+  background: var(--dash-client-light);
+}
+
+.dash-client-transaction-item-cell .dash-client-transaction-item-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dash-client-machine-cell {
+  color: var(--dash-client-text-secondary);
+  font-size: 13px;
+}
+
+.dash-client-amount-cell .dash-client-amount {
+  font-weight: 600;
+  color: var(--dash-client-success);
+}
+
+.dash-client-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.dash-client-status-success {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--dash-client-success);
+}
+
+.dash-client-status-pending {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--dash-client-warning);
+}
+
+.dash-client-status-failed {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--dash-client-danger);
+}
+
+.dash-client-date-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--dash-client-text-secondary);
+  font-size: 13px;
+}
+
+.dash-client-no-transactions {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.dash-client-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: var(--dash-client-text-secondary);
+}
+
+.dash-client-empty-action {
+  padding: 10px 20px;
+  background: var(--dash-client-primary);
+  color: var(--dash-client-white);
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 12px;
+}
+
+.dash-client-empty-action:hover {
+  background: var(--dash-client-primary-dark);
+}
+
+/* System Status Bar */
+.dash-client-system-status-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 24px;
+  background: var(--dash-client-white);
+  border-radius: 16px;
+  border: 1px solid var(--dash-client-border);
+  box-shadow: var(--dash-client-shadow-md);
+}
+
+.dash-client-system-status-bar .dash-client-status-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dash-client-system-status-bar .dash-client-status-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dash-client-system-status-bar .dash-client-status-label {
+  font-size: 13px;
+  color: var(--dash-client-text-secondary);
+}
+
+.dash-client-system-status-bar .dash-client-status-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--dash-client-text);
+}
+
+.dash-client-system-status-bar .dash-client-status-progress {
+  height: 4px;
+  background: var(--dash-client-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.dash-client-system-status-bar .dash-client-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--dash-client-primary), var(--dash-client-secondary));
+  border-radius: 2px;
+  transition: width 0.6s ease;
+}
+
+/* Floating Action Button */
+.dash-client-floating-action-btn {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  padding: 16px 24px;
+  background: var(--dash-client-primary);
+  color: var(--dash-client-white);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: var(--dash-client-shadow-xl);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 100;
+  font-weight: 600;
+}
+
+.dash-client-floating-action-btn:hover {
+  background: var(--dash-client-primary-dark);
+  transform: scale(1.1);
+  box-shadow: 0 20px 40px rgba(227, 24, 55, 0.3);
+}
+
+.dash-client-fab-label {
+  font-size: 14px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1200px) {
+  .dash-client-sidebar {
+    width: 260px;
+  }
+  
+  .dash-client-content {
+    margin-left: 260px;
+    max-width: calc(100vw - 260px);
+  }
+  
+  .dash-client-search-wrapper {
+    width: 300px;
+  }
+  
+  .dash-client-quick-overview {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 992px) {
+  .dash-client-header {
+    padding: 0 20px;
+  }
+  
+  .dash-client-search-wrapper {
+    display: none;
+  }
+  
+  .dash-client-sidebar {
+    width: 240px;
+  }
+  
+  .dash-client-content {
+    margin-left: 240px;
+    max-width: calc(100vw - 240px);
+    padding: 24px;
+  }
+  
+  .dash-client-content-header {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .dash-client-header-controls {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .dash-client-date-range {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .dash-client-quick-overview {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .dash-client-header {
+    padding: 0 16px;
+  }
+  
+  .dash-client-user-info-mini .dash-client-user-name {
+    display: none;
+  }
+  
+  .dash-client-content {
+    padding: 16px;
+    margin-left: 0 !important;
+    max-width: 100% !important;
+  }
+  
+  .dash-client-quick-overview,
+  .dash-client-analytics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .dash-client-content-sections {
+    gap: 20px;
+  }
+  
+  .dash-client-system-status-bar {
+    grid-template-columns: 1fr;
+  }
+  
+  .dash-client-dropdown-menu {
+    width: 280px;
+    right: -20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .dash-client-menu-toggle {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .dash-client-brand-text h1 {
+    font-size: 20px;
+  }
+  
+  .dash-client-client-tag {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+  
+  .dash-client-brand-subtitle {
+    display: none;
+  }
+  
+  .dash-client-header-controls .dash-client-refresh-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .dash-client-floating-action-btn {
+    width: auto;
+    height: auto;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+  }
+  
+  .dash-client-dropdown-menu {
+    width: 260px;
+  }
+}
+
+/* Notifications */
+.dash-client-notifications-dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 350px;
+  background: var(--dash-client-white);
+  border-radius: 12px;
+  box-shadow: var(--dash-client-shadow-xl);
+  z-index: 1000;
+  overflow: hidden;
+  border: 1px solid var(--dash-client-border);
+}
+
+.dash-client-notifications-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--dash-client-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dash-client-notifications-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--dash-client-text);
+  font-weight: 600;
+}
+
+.dash-client-mark-all-btn {
+  background: none;
+  border: none;
+  color: var(--dash-client-primary);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.dash-client-mark-all-btn:hover {
+  background: rgba(227, 24, 55, 0.1);
+}
+
+.dash-client-notifications-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.dash-client-notification-item {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--dash-client-border);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+  position: relative;
+}
+
+.dash-client-notification-item:hover {
+  background: var(--dash-client-light);
+}
+
+.dash-client-notification-item.unread {
+  background: rgba(227, 24, 55, 0.05);
+}
+
+.dash-client-notification-icon {
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.dash-client-notification-content {
+  flex: 1;
+}
+
+.dash-client-notification-content h4 {
+  margin: 0 0 4px;
+  font-size: 14px;
+  color: var(--dash-client-text);
+  font-weight: 600;
+}
+
+.dash-client-notification-content p {
+  margin: 0 0 8px;
+  font-size: 12px;
+  color: var(--dash-client-text-secondary);
+  line-height: 1.4;
+}
+
+.dash-client-notification-time {
+  font-size: 11px;
+  color: var(--dash-client-text-tertiary);
+}
+
+.dash-client-notification-dot {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 8px;
+  height: 8px;
+  background: var(--dash-client-primary);
+  border-radius: 50%;
+}
+
+.dash-client-no-notifications {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.dash-client-no-notifications svg {
+  margin-bottom: 12px;
+  opacity: 0.5;
+}
+
+.dash-client-no-notifications p {
+  margin: 0;
+  color: var(--dash-client-text-secondary);
+  font-size: 14px;
+}
+
+.dash-client-notifications-footer {
+  padding: 12px 20px;
+  border-top: 1px solid var(--dash-client-border);
+  text-align: center;
+}
+
+.dash-client-view-all-notifications {
+  background: none;
+  border: none;
+  color: var(--dash-client-primary);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.dash-client-view-all-notifications:hover {
+  background: rgba(227, 24, 55, 0.1);
+}
+
+/* Scrollbar Styling */
+.dash-client-sidebar::-webkit-scrollbar,
+.dash-client-content::-webkit-scrollbar,
+.dash-client-notifications-list::-webkit-scrollbar,
+.dash-client-table-wrapper::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.dash-client-sidebar::-webkit-scrollbar-track,
+.dash-client-content::-webkit-scrollbar-track,
+.dash-client-notifications-list::-webkit-scrollbar-track,
+.dash-client-table-wrapper::-webkit-scrollbar-track {
+  background: var(--dash-client-border);
+  border-radius: 3px;
+}
+
+.dash-client-sidebar::-webkit-scrollbar-thumb,
+.dash-client-content::-webkit-scrollbar-thumb,
+.dash-client-notifications-list::-webkit-scrollbar-thumb,
+.dash-client-table-wrapper::-webkit-scrollbar-thumb {
+  background: var(--dash-client-primary);
+  border-radius: 3px;
+}
+
+.dash-client-sidebar::-webkit-scrollbar-thumb:hover,
+.dash-client-content::-webkit-scrollbar-thumb:hover,
+.dash-client-notifications-list::-webkit-scrollbar-thumb:hover,
+.dash-client-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--dash-client-primary-dark);
+}
+
+/* Animations */
+@keyframes dash-client-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dash-client-overview-card,
+.dash-client-analytics-card,
+.dash-client-alert-item {
+  animation: dash-client-fadeInUp 0.6s ease forwards;
+}
+
+/* Notification badge animation */
+.dash-client-notification-count {
+  animation: dash-client-pulse 2s infinite;
+}
+
+@keyframes dash-client-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
