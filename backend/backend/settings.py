@@ -48,6 +48,8 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
+    "http://localhost:6658",
+    "http://127.0.0.1:6658",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -102,7 +104,7 @@ DATABASES = {
         'NAME': os.environ.get('MYSQL_DATABASE', 'distributeur_db'),
         'USER': os.environ.get('MYSQL_USER', 'root'),
         'PASSWORD': os.environ.get('MYSQL_PASSWORD', ''),
-        'HOST': os.environ.get('DB_HOST', 'mysql'),
+        'HOST': os.environ.get('DB_HOST', '127.0.0.1'),
         'PORT': os.environ.get('DB_PORT', '3306'),
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
